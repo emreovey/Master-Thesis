@@ -13289,7 +13289,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;pyspark.sql.context.SQLContext object at 0x103ce5b38&gt;
+<pre>&lt;pyspark.sql.context.SQLContext object at 0x1051e8b00&gt;
 </pre>
 </div>
 </div>
@@ -14144,7 +14144,7 @@ only showing top 5 rows
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#######Predictive models built for companies ########## 1386 717</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#######Predictive models built for companies ########## </span>
 <span class="c1">#building the arima model for facebook</span>
 <span class="kn">from</span> <span class="nn">pmdarima.arima</span> <span class="k">import</span> <span class="n">auto_arima</span>
 <span class="n">stepwise_model</span> <span class="o">=</span> <span class="n">auto_arima</span><span class="p">(</span><span class="n">facebook_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(),</span> 
@@ -14195,13 +14195,13 @@ only showing top 5 rows
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=472.096, BIC=481.772, Fit time=0.123 seconds
-Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=631.086, BIC=635.924, Fit time=0.021 seconds
-Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=470.121, BIC=477.377, Fit time=0.094 seconds
-Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=549.246, BIC=556.503, Fit time=0.068 seconds
-Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=472.103, BIC=481.779, Fit time=0.130 seconds
+<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=472.096, BIC=481.772, Fit time=0.084 seconds
+Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=631.086, BIC=635.924, Fit time=0.007 seconds
+Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=470.121, BIC=477.377, Fit time=0.047 seconds
+Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=549.246, BIC=556.503, Fit time=0.041 seconds
+Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=472.103, BIC=481.779, Fit time=0.105 seconds
 Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds
-Total fit time: 0.439 seconds
+Total fit time: 0.287 seconds
 470.12097491898874
 13.867510226831687
 7.174441508885791
@@ -14223,10 +14223,14 @@ Total fit time: 0.439 seconds
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">facebook_model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">facebook_train_sentiment</span><span class="p">,</span><span class="n">facebook_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">facebook_results</span><span class="o">=</span><span class="n">facebook_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">facebook_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -14295,9 +14299,13 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting with Linear Reg. facebook</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">facebook_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">facebook_fit</span><span class="o">=</span><span class="n">facebook_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">facebook_train_sentiment</span><span class="p">,</span><span class="n">facebook_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">facebook_predictions</span> <span class="o">=</span> <span class="n">facebook_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">facebook_test_sentiment</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
@@ -14411,14 +14419,14 @@ Method .as_matrix will be removed in a future version. Use .values instead.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=407.851, BIC=417.527, Fit time=0.160 seconds
-Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=536.983, BIC=541.820, Fit time=0.007 seconds
-Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=408.276, BIC=415.532, Fit time=0.024 seconds
-Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=465.618, BIC=472.875, Fit time=0.034 seconds
-Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=409.740, BIC=421.835, Fit time=0.176 seconds
-Fit ARIMA: order=(1, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=409.420, BIC=421.514, Fit time=0.148 seconds
-Fit ARIMA: order=(2, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=411.323, BIC=425.836, Fit time=0.233 seconds
-Total fit time: 0.784 seconds
+<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=407.851, BIC=417.527, Fit time=0.129 seconds
+Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=536.983, BIC=541.820, Fit time=0.005 seconds
+Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=408.276, BIC=415.532, Fit time=0.018 seconds
+Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=465.618, BIC=472.875, Fit time=0.022 seconds
+Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=409.740, BIC=421.835, Fit time=0.138 seconds
+Fit ARIMA: order=(1, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=409.420, BIC=421.514, Fit time=0.111 seconds
+Fit ARIMA: order=(2, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=411.323, BIC=425.836, Fit time=0.185 seconds
+Total fit time: 0.610 seconds
 407.85124862700263
 13.550641573310553
 6.950786385419275
@@ -14440,10 +14448,14 @@ Total fit time: 0.784 seconds
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">apple_model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">apple_train_sentiment</span><span class="p">,</span><span class="n">apple_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">apple_results</span><span class="o">=</span><span class="n">apple_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">apple_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -14512,9 +14524,13 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting with Linear Reg. apple</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">apple_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">apple_fit</span><span class="o">=</span><span class="n">apple_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">apple_train_sentiment</span><span class="p">,</span><span class="n">apple_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">apple_predictions</span> <span class="o">=</span> <span class="n">apple_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">apple_test_sentiment</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
@@ -14629,13 +14645,13 @@ Method .as_matrix will be removed in a future version. Use .values instead.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=324.746, BIC=334.373, Fit time=0.054 seconds
-Fit ARIMA: order=(0, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=329.804, BIC=334.617, Fit time=0.013 seconds
-Fit ARIMA: order=(1, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=326.757, BIC=333.977, Fit time=0.027 seconds
-Fit ARIMA: order=(0, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=323.107, BIC=330.327, Fit time=0.032 seconds
-Fit ARIMA: order=(0, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.764, BIC=333.391, Fit time=0.055 seconds
-Fit ARIMA: order=(1, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.349, BIC=335.383, Fit time=0.087 seconds
-Total fit time: 0.270 seconds
+<pre>Fit ARIMA: order=(1, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=324.746, BIC=334.373, Fit time=0.049 seconds
+Fit ARIMA: order=(0, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=329.804, BIC=334.617, Fit time=0.012 seconds
+Fit ARIMA: order=(1, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=326.757, BIC=333.977, Fit time=0.028 seconds
+Fit ARIMA: order=(0, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=323.107, BIC=330.327, Fit time=0.024 seconds
+Fit ARIMA: order=(0, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.764, BIC=333.391, Fit time=0.034 seconds
+Fit ARIMA: order=(1, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.349, BIC=335.383, Fit time=0.060 seconds
+Total fit time: 0.208 seconds
 323.1067726447037
 1.523271924376745
 1.3823633103242856
@@ -14657,10 +14673,14 @@ Total fit time: 0.270 seconds
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">microsoft_train_sentiment</span><span class="p">,</span><span class="n">microsoft_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">results</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">microsoft_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -14729,9 +14749,13 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting with Linear Reg. microsoft</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">microsoft_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">microsoft_fit</span><span class="o">=</span><span class="n">microsoft_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">microsoft_train_sentiment</span><span class="p">,</span><span class="n">microsoft_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">microsoft_predictions</span> <span class="o">=</span> <span class="n">microsoft_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">microsoft_test_sentiment</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
@@ -14845,13 +14869,13 @@ Method .as_matrix will be removed in a future version. Use .values instead.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=743.081, BIC=752.756, Fit time=0.103 seconds
-Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=891.220, BIC=896.058, Fit time=0.006 seconds
-Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=742.158, BIC=749.414, Fit time=0.025 seconds
-Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=811.044, BIC=818.300, Fit time=0.044 seconds
-Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=743.394, BIC=753.069, Fit time=0.057 seconds
+<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=743.081, BIC=752.756, Fit time=0.097 seconds
+Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=891.220, BIC=896.058, Fit time=0.005 seconds
+Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=742.158, BIC=749.414, Fit time=0.024 seconds
+Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=811.044, BIC=818.300, Fit time=0.042 seconds
+Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=743.394, BIC=753.069, Fit time=0.056 seconds
 Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds
-Total fit time: 0.237 seconds
+Total fit time: 0.226 seconds
 742.1579574183824
 27.708177782619252
 2.202944282879424
@@ -14873,10 +14897,14 @@ Total fit time: 0.237 seconds
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">google_model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">google_train_sentiment</span><span class="p">,</span><span class="n">google_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">google_results</span><span class="o">=</span><span class="n">google_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">google_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -14946,9 +14974,13 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">google_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">google_fit</span><span class="o">=</span><span class="n">google_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">google_train_sentiment</span><span class="p">,</span><span class="n">google_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">google_predictions</span> <span class="o">=</span> <span class="n">google_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">google_test_sentiment</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
@@ -15062,13 +15094,13 @@ Method .as_matrix will be removed in a future version. Use .values instead.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=794.517, BIC=804.095, Fit time=0.160 seconds
+<pre>Fit ARIMA: order=(1, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=794.517, BIC=804.095, Fit time=0.147 seconds
 Fit ARIMA: order=(0, 2, 0) seasonal_order=(0, 0, 0, 1); AIC=845.165, BIC=849.954, Fit time=0.008 seconds
-Fit ARIMA: order=(1, 2, 0) seasonal_order=(0, 0, 0, 1); AIC=824.643, BIC=831.826, Fit time=0.039 seconds
-Fit ARIMA: order=(0, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=792.571, BIC=799.754, Fit time=0.084 seconds
-Fit ARIMA: order=(0, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=794.513, BIC=804.091, Fit time=0.136 seconds
-Fit ARIMA: order=(1, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=796.432, BIC=808.404, Fit time=0.100 seconds
-Total fit time: 0.528 seconds
+Fit ARIMA: order=(1, 2, 0) seasonal_order=(0, 0, 0, 1); AIC=824.643, BIC=831.826, Fit time=0.034 seconds
+Fit ARIMA: order=(0, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=792.571, BIC=799.754, Fit time=0.078 seconds
+Fit ARIMA: order=(0, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=794.513, BIC=804.091, Fit time=0.113 seconds
+Fit ARIMA: order=(1, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=796.432, BIC=808.404, Fit time=0.094 seconds
+Total fit time: 0.474 seconds
 792.5707019938071
 25.65268778942998
 1.2037639963296145
@@ -15090,10 +15122,14 @@ Total fit time: 0.528 seconds
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">amazon_model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">amazon_train_sentiment</span><span class="p">,</span><span class="n">amazon_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">amazon_results</span><span class="o">=</span><span class="n">amazon_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">amazon_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -15162,9 +15198,13 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting with Linear Reg. amazon</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">amazon_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">amazon_fit</span><span class="o">=</span><span class="n">amazon_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">amazon_train_sentiment</span><span class="p">,</span><span class="n">amazon_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">amazon_predictions</span> <span class="o">=</span> <span class="n">amazon_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">amazon_test_sentiment</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
@@ -15233,6 +15273,7 @@ The default of the `iid` parameter will change from True to False in version 0.2
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Loading S&amp;P 500 index</span>
 <span class="n">sp500</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/emreovey/Desktop/SP500.csv&#39;</span><span class="p">)</span>
+<span class="c1">#initiating the spark dataframe</span>
 <span class="n">sp500</span><span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">sp500</span><span class="p">)</span>
 </pre></div>
 
@@ -15381,13 +15422,13 @@ Method .as_matrix will be removed in a future version. Use .values instead.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=816.063, BIC=825.738, Fit time=0.184 seconds
-Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=943.684, BIC=948.522, Fit time=0.009 seconds
-Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=814.157, BIC=821.414, Fit time=0.059 seconds
-Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=857.200, BIC=864.457, Fit time=0.042 seconds
-Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=816.076, BIC=825.751, Fit time=0.051 seconds
+<pre>Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=816.063, BIC=825.738, Fit time=0.120 seconds
+Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=943.684, BIC=948.522, Fit time=0.011 seconds
+Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=814.157, BIC=821.414, Fit time=0.050 seconds
+Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=857.200, BIC=864.457, Fit time=0.051 seconds
+Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=816.076, BIC=825.751, Fit time=0.054 seconds
 Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds
-Total fit time: 0.349 seconds
+Total fit time: 0.290 seconds
 814.1571906097759
 28.636052620056496
 0.8043029626614193
@@ -15407,11 +15448,14 @@ Total fit time: 0.349 seconds
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting with Linear Reg. S&amp;P 500 Index</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;normalize&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;copy_X&#39;</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">combined_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">combined_fit</span><span class="o">=</span><span class="n">combined_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">combined_train_sentiment</span><span class="p">,</span><span class="n">combined_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">sp500_predictions</span> <span class="o">=</span> <span class="n">combined_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">combined_test_sentiment</span><span class="p">)</span>
-
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -15482,11 +15526,15 @@ The default of the `iid` parameter will change from True to False in version 0.2
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<span class="c1">#creating the matrix of parameters that will be used in GridSearchCV</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
                <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]}]</span>
+<span class="c1">#defining the gridsearch function with the parameters</span>
 <span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svr</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#training the model</span>
 <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">combined_train_sentiment</span><span class="p">,</span><span class="n">combined_train_set</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])</span>
+<span class="c1">#making predictions</span>
 <span class="n">results_sp500</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">combined_test_sentiment</span><span class="p">)</span>
 <span class="c1">#calculating accuracy measures</span>
 <span class="c1">#results of rmse</span>
@@ -15592,7 +15640,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/336.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/404.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15646,7 +15694,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/338.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/406.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15700,7 +15748,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/340.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/408.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15754,7 +15802,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/342.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/410.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15808,7 +15856,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/344.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/412.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15862,7 +15910,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/346.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/414.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15916,7 +15964,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/348.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/416.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15970,7 +16018,7 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/350.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/418.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15982,60 +16030,6 @@ Consider using IPython.display.IFrame instead
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[60]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualizations</span>
-<span class="c1">##Amazon LR prediction</span>
-<span class="kn">import</span> <span class="nn">plotly</span> 
-<span class="n">plotly</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">set_credentials_file</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;emreovey&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;VDKOQlPYg9AsEeFZsNSX&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="k">as</span> <span class="nn">ply</span>
-<span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
- 
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">amazon_predictions</span> <span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="n">amazon_test_set</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prediction&#39;</span><span class="p">])</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">amazon_joined</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span><span class="n">predictions</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Predicted results of the stock price of Apple Inc. using LR vs actual stock price&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:
-
-Consider using IPython.display.IFrame instead
-
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[60]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/352.embed" height="525px" width="100%"></iframe>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualizations of daily sentiment scores</span>
@@ -16071,12 +16065,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[61]:</div>
+    <div class="prompt output_prompt">Out[60]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/354.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/420.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16087,7 +16081,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Histogram of the Sentiment Scores of Facebook Inc</span>
@@ -16124,12 +16118,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[62]:</div>
+    <div class="prompt output_prompt">Out[61]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/356.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/422.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16140,7 +16134,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualizations of daily sentiment scores</span>
@@ -16176,12 +16170,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+    <div class="prompt output_prompt">Out[62]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/358.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/424.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16192,7 +16186,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Histogram of the Sentiment Scores of Apple Inc</span>
@@ -16229,12 +16223,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[64]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/360.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/426.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16245,7 +16239,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualizations of daily sentiment scores</span>
@@ -16281,12 +16275,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[65]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/362.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/428.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16297,7 +16291,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Histogram of the Sentiment Scores of Google</span>
@@ -16334,12 +16328,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[66]:</div>
+    <div class="prompt output_prompt">Out[65]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/364.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/430.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16350,7 +16344,7 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#visualizations of daily sentiment scores</span>
@@ -16386,12 +16380,12 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[67]:</div>
+    <div class="prompt output_prompt">Out[66]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/366.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/432.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -16402,17 +16396,14 @@ Consider using IPython.display.IFrame instead
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Histogram of the Sentiment Scores of Amazon.com Inc.</span>
-<span class="n">amazon_joined</span><span class="p">[</span><span class="s1">&#39;daily_sentiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span>
-    <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">xTitle</span><span class="o">=</span><span class="s1">&#39;polarity&#39;</span><span class="p">,</span>
-    <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
-    <span class="n">yTitle</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sentiment Polarity Distribution for Amazon.com Inc.&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">amazon_joined</span><span class="p">[</span><span class="s1">&#39;daily_sentiment&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;polarity&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16429,9 +16420,10 @@ Consider using IPython.display.IFrame instead
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:
+<pre>/anaconda3/lib/python3.7/site-packages/matplotlib/axes/_axes.py:6521: MatplotlibDeprecationWarning:
 
-Consider using IPython.display.IFrame instead
+
+The &#39;normed&#39; kwarg was deprecated in Matplotlib 2.1 and will be removed in 3.1. Use &#39;density&#39; instead.
 
 </pre>
 </div>
@@ -16439,16 +16431,45 @@ Consider using IPython.display.IFrame instead
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[68]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~emreovey/368.embed" height="525px" width="100%"></iframe>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5, 0, &#39;polarity&#39;)</pre>
 </div>
 
 </div>
 
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
