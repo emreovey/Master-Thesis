@@ -1,0 +1,2620 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#dont run the first 7 lines\n",
+    "#Loading the data of Financial News from Json files into pandas dataframe\n",
+    "#import os\n",
+    "#import pandas as pd\n",
+    "#import json\n",
+    "#january\n",
+    "#path_to_json = '/Users/emreovey/Downloads/us-financial-news-articles/2018_01_112b52537b67659ad3609a234388c50a'\n",
+    "#json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]\n",
+    "#jsons_data = pd.DataFrame(columns=['text','published','title'])\n",
+    "#for index, js in enumerate(json_files):\n",
+    "#    with open(os.path.join(path_to_json, js)) as json_file:\n",
+    "#        json_text = json.load(json_file)\n",
+    "#        text = json_text['text']\n",
+    "#        published = json_text['published']\n",
+    "#        title= json_text['title']\n",
+    "#        jsons_data.loc[index]=[text,published,title]\n",
+    "#jsons_data['published'] = pd.to_datetime(jsons_data['published'])\n",
+    "#jsons_data['text'] = jsons_data.text.astype(str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#february\n",
+    "#path_to_json1 = '/Users/emreovey/Downloads/us-financial-news-articles/2018_02_112b52537b67659ad3609a234388c50a'\n",
+    "#json_files1 = [pos_json for pos_json in os.listdir(path_to_json1) if pos_json.endswith('.json')]\n",
+    "#jsons_data1= pd.DataFrame(columns=['text','published','title'])\n",
+    "#for index, js in enumerate(json_files1):\n",
+    "#    with open(os.path.join(path_to_json1, js)) as json_file:\n",
+    "#        json_text = json.load(json_file)\n",
+    "#        text = json_text['text']\n",
+    "#        published = json_text['published']\n",
+    "#        title= json_text['title']\n",
+    "#        jsons_data1.loc[index]=[text,published,title]\n",
+    "#jsons_data1['published'] = pd.to_datetime(jsons_data1['published'])\n",
+    "#jsons_data1['text'] = jsons_data1.text.astype(str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#march\n",
+    "#path_to_json2 = '/Users/emreovey/Downloads/us-financial-news-articles/2018_03_112b52537b67659ad3609a234388c50a'\n",
+    "#json_files2 = [pos_json for pos_json in os.listdir(path_to_json2) if pos_json.endswith('.json')]\n",
+    "#jsons_data2 = pd.DataFrame(columns=['text','published','title'])\n",
+    "#for index, js in enumerate(json_files2):\n",
+    "#    with open(os.path.join(path_to_json2, js)) as json_file:\n",
+    "#        json_text = json.load(json_file)\n",
+    "#        text = json_text['text']\n",
+    "#        published = json_text['published']\n",
+    "#        title= json_text['title']\n",
+    "#        jsons_data2.loc[index]=[text,published,title]\n",
+    "#jsons_data2['published'] = pd.to_datetime(jsons_data2['published'])\n",
+    "#jsons_data2['text'] = jsons_data2.text.astype(str)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#april\n",
+    "#path_to_json3 = '/Users/emreovey/Downloads/us-financial-news-articles/2018_04_112b52537b67659ad3609a234388c50a'\n",
+    "#json_files3 = [pos_json for pos_json in os.listdir(path_to_json3) if pos_json.endswith('.json')]\n",
+    "#jsons_data3 = pd.DataFrame(columns=['text','published','title'])\n",
+    "#for index, js in enumerate(json_files3):\n",
+    "#    with open(os.path.join(path_to_json3, js)) as json_file:\n",
+    "#        json_text = json.load(json_file)\n",
+    "#        text = json_text['text']\n",
+    "#        published = json_text['published']\n",
+    "#        title= json_text['title']\n",
+    "#        jsons_data3.loc[index]=[text,published,title]\n",
+    "#jsons_data3['published'] = pd.to_datetime(jsons_data3['published'])\n",
+    "#jsons_data3['text'] = jsons_data3.text.astype(str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#may\n",
+    "#path_to_json4 = '/Users/emreovey/Downloads/us-financial-news-articles/2018_05_112b52537b67659ad3609a234388c50a'\n",
+    "#json_files4 = [pos_json for pos_json in os.listdir(path_to_json4) if pos_json.endswith('.json')]\n",
+    "#jsons_data4 = pd.DataFrame(columns=['text','published','title'])\n",
+    "#for index, js in enumerate(json_files4):\n",
+    "#    with open(os.path.join(path_to_json4, js)) as json_file:\n",
+    "#        json_text = json.load(json_file)\n",
+    "#        text = json_text['text']\n",
+    "#        published = json_text['published']\n",
+    "#        title= json_text['title']\n",
+    "#        jsons_data4.loc[index]=[text,published,title]\n",
+    "#jsons_data4['published'] = pd.to_datetime(jsons_data4['published'])\n",
+    "#jsons_data4['text'] = jsons_data4.text.astype(str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#join all the months in one dataframe\n",
+    "#datas=[jsons_data,jsons_data1,jsons_data2,jsons_data3,jsons_data4]\n",
+    "#jsons_data = pd.concat(datas)\n",
+    "#jsons_data['published'] = pd.to_datetime(jsons_data['published'],utc=True)\n",
+    "#jsons_data['text'] = jsons_data.text.astype(str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<pyspark.sql.context.SQLContext object at 0x103ce5b38>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Please start running the code from this line\n",
+    "#Creating the sparks session and sqlcontext\n",
+    "from pyspark.sql import SparkSession\n",
+    "from pyspark import SparkConf\n",
+    "from pyspark.sql import SQLContext\n",
+    "spark = SparkSession.builder.appName('sentiment').getOrCreate()\n",
+    "sqlContext = SQLContext(spark)\n",
+    "print(sqlContext)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    " import pandas as pd\n",
+    "#Loading the master sentiment dictionary from Laughran and McDonald\n",
+    "sentiment= pd.read_csv('/Users/emreovey/Desktop/LoughranMcDonald_MasterDictionary_2018.csv')\n",
+    "sentiment['Word'] = sentiment['Word'].str.lower()\n",
+    "#Select only negative words and add a score of -1\n",
+    "sentiment_neg = sentiment[sentiment['Negative']>0]\n",
+    "sentiment_neg=sentiment_neg['Word']\n",
+    "sentiment_neg=sentiment_neg.to_frame() #convert to pandas dataframe\n",
+    "sentiment_neg['Score']= -1 #add a score of -1\n",
+    "#Select only positive words and add a score of 1\n",
+    "sentiment_pos=sentiment[sentiment['Positive']>0]\n",
+    "sentiment_pos=sentiment_pos['Word']\n",
+    "sentiment_pos=sentiment_pos.to_frame() #convert to pandas dataframe\n",
+    "sentiment_pos['Score']= 1 #add a score of 1\n",
+    "dfs=[sentiment_neg, sentiment_pos]\n",
+    "sentiment = pd.concat(dfs)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "+----------+-----+\n",
+      "|      Word|Score|\n",
+      "+----------+-----+\n",
+      "|      able|    1|\n",
+      "| abundance|    1|\n",
+      "|  abundant|    1|\n",
+      "| acclaimed|    1|\n",
+      "|accomplish|    1|\n",
+      "+----------+-----+\n",
+      "only showing top 5 rows\n",
+      "\n",
+      "+------------+-----+\n",
+      "|        Word|Score|\n",
+      "+------------+-----+\n",
+      "|     abandon|   -1|\n",
+      "|   abandoned|   -1|\n",
+      "|  abandoning|   -1|\n",
+      "| abandonment|   -1|\n",
+      "|abandonments|   -1|\n",
+      "+------------+-----+\n",
+      "only showing top 5 rows\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pyspark.sql import functions as fn\n",
+    "sentiments_df= sqlContext.createDataFrame(sentiment)\n",
+    "from pyspark.sql import functions as fn\n",
+    "# a sample of positive words\n",
+    "sentiments_df.where(fn.col('Score') == 1).show(5)\n",
+    "# a sample of negative words\n",
+    "sentiments_df.where(fn.col('Score') == -1).show(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Getting the news about individual companies of FAMGA\n",
+    "#import pandas as pd\n",
+    "#microsoft_news=pd.DataFrame(jsons_data[jsons_data['text'].str.contains(\"Microsoft\")])\n",
+    "#facebook_news=pd.DataFrame(jsons_data[jsons_data['text'].str.contains(\"Facebook\")])\n",
+    "#google_news=pd.DataFrame(jsons_data[jsons_data['text'].str.contains(\"Google\")])\n",
+    "#amazon_news=pd.DataFrame(jsons_data[jsons_data['text'].str.contains(\"Amazon\")])\n",
+    "#apple_news=pd.DataFrame(jsons_data[jsons_data['text'].str.contains(\"Apple\")])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#We write sentiment documents to csv because it takes too much time to load the json data all the time\n",
+    "#microsoft_news.to_csv(path_or_buf='/Users/emreovey/Desktop/company_news/microsoft_news.csv', sep=',',header=True)\n",
+    "#facebook_news.to_csv(path_or_buf='/Users/emreovey/Desktop/company_news/facebook_news.csv', sep=',',header=True)\n",
+    "#google_news.to_csv(path_or_buf='/Users/emreovey/Desktop/company_news/google_news.csv', sep=',',header=True)\n",
+    "#amazon_news.to_csv(path_or_buf='/Users/emreovey/Desktop/company_news/amazon_news.csv', sep=',',header=True)\n",
+    "#apple_news.to_csv(path_or_buf='/Users/emreovey/Desktop/company_news/apple_news.csv', sep=',',header=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#loading the dataframes of news which are filtered for companies\n",
+    "microsoft_news= pd.read_csv('/Users/emreovey/Desktop/company_news/microsoft_news.csv',sep=',')\n",
+    "facebook_news= pd.read_csv('/Users/emreovey/Desktop/company_news/facebook_news.csv',sep=',')\n",
+    "google_news= pd.read_csv('/Users/emreovey/Desktop/company_news/google_news.csv',sep=',')\n",
+    "amazon_news= pd.read_csv('/Users/emreovey/Desktop/company_news/amazon_news.csv',sep=',')\n",
+    "apple_news= pd.read_csv('/Users/emreovey/Desktop/company_news/apple_news.csv',sep=',')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#converting the dataframes into sparkdataframe\n",
+    "import pyspark\n",
+    "microsoft= sqlContext.createDataFrame(microsoft_news)\n",
+    "facebook=sqlContext.createDataFrame(facebook_news)\n",
+    "google=sqlContext.createDataFrame(google_news)\n",
+    "amazon=sqlContext.createDataFrame(amazon_news)\n",
+    "apple=sqlContext.createDataFrame(apple_news)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#deleting punctuation from the text\n",
+    "import string\n",
+    "import re\n",
+    "def remove_punct(text):\n",
+    "    regex = re.compile('[' + re.escape(string.punctuation) + '0-9\\\\r\\\\t\\\\n]')\n",
+    "    nopunct = regex.sub(\"\", text)  \n",
+    "    return nopunct"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#cont'd deleting punctuation\n",
+    "#microsoft\n",
+    "from pyspark.sql.functions import udf\n",
+    "punct_remover = udf(lambda x: remove_punct(x))\n",
+    "microsoft=microsoft.select(punct_remover('text'),'title','published')\n",
+    "microsoft= microsoft.withColumnRenamed('<lambda>(text)', 'text')\n",
+    "#facebook\n",
+    "facebook=facebook.select(punct_remover('text'),'title','published')\n",
+    "facebook= facebook.withColumnRenamed('<lambda>(text)', 'text')\n",
+    "#google\n",
+    "google=google.select(punct_remover('text'),'title','published')\n",
+    "google= google.withColumnRenamed('<lambda>(text)', 'text')\n",
+    "#amazon\n",
+    "amazon=amazon.select(punct_remover('text'),'title','published')\n",
+    "amazon= amazon.withColumnRenamed('<lambda>(text)', 'text')\n",
+    "#apple\n",
+    "apple=apple.select(punct_remover('text'),'title','published')\n",
+    "apple= apple.withColumnRenamed('<lambda>(text)', 'text')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Tokenization and removal of stop words\n",
+    "from pyspark.ml import *\n",
+    "from pyspark.ml.feature import Tokenizer, RegexTokenizer, StopWordsRemover\n",
+    "#######microsoft#######\n",
+    "#tokenizer and stop word remover\n",
+    "tok = Tokenizer(inputCol=\"text\", outputCol=\"words\")\n",
+    "#stop word remover\n",
+    "locale = spark._jvm.java.util.Locale\n",
+    "locale.setDefault(locale.forLanguageTag(\"en-US\"))\n",
+    "stopwordrm = StopWordsRemover(inputCol='words', outputCol='words_nsw')\n",
+    "# Build the pipeline \n",
+    "pipeline = Pipeline(stages=[tok, stopwordrm])\n",
+    "# Fit the pipeline \n",
+    "mic_tokenized = pipeline.fit(microsoft).transform(microsoft)\n",
+    "######facebook#######\n",
+    "#tokenizer and stop word remover\n",
+    "tok = Tokenizer(inputCol=\"text\", outputCol=\"words\")\n",
+    "#stop word remover\n",
+    "locale = spark._jvm.java.util.Locale\n",
+    "locale.setDefault(locale.forLanguageTag(\"en-US\"))\n",
+    "stopwordrm = StopWordsRemover(inputCol='words', outputCol='words_nsw')\n",
+    "# Build the pipeline \n",
+    "pipeline = Pipeline(stages=[tok, stopwordrm])\n",
+    "# Fit the pipeline \n",
+    "facebook_tokenized = pipeline.fit(facebook).transform(facebook)\n",
+    "#####google######\n",
+    "#tokenizer and stop word remover\n",
+    "tok = Tokenizer(inputCol=\"text\", outputCol=\"words\")\n",
+    "#stop word remover\n",
+    "locale = spark._jvm.java.util.Locale\n",
+    "locale.setDefault(locale.forLanguageTag(\"en-US\"))\n",
+    "stopwordrm = StopWordsRemover(inputCol='words', outputCol='words_nsw')\n",
+    "# Build the pipeline \n",
+    "pipeline = Pipeline(stages=[tok, stopwordrm])\n",
+    "# Fit the pipeline \n",
+    "google_tokenized = pipeline.fit(google).transform(google)\n",
+    "#####amazon######\n",
+    "#tokenizer and stop word remover\n",
+    "tok = Tokenizer(inputCol=\"text\", outputCol=\"words\")\n",
+    "#stop word remover\n",
+    "locale = spark._jvm.java.util.Locale\n",
+    "locale.setDefault(locale.forLanguageTag(\"en-US\"))\n",
+    "stopwordrm = StopWordsRemover(inputCol='words', outputCol='words_nsw')\n",
+    "# Build the pipeline \n",
+    "pipeline = Pipeline(stages=[tok, stopwordrm])\n",
+    "# Fit the pipeline \n",
+    "amazon_tokenized = pipeline.fit(amazon).transform(amazon)\n",
+    "#####apple#######\n",
+    "#tokenizer and stop word remover\n",
+    "tok = Tokenizer(inputCol=\"text\", outputCol=\"words\")\n",
+    "#stop word remover\n",
+    "locale = spark._jvm.java.util.Locale\n",
+    "locale.setDefault(locale.forLanguageTag(\"en-US\"))\n",
+    "stopwordrm = StopWordsRemover(inputCol='words', outputCol='words_nsw')\n",
+    "# Build the pipeline \n",
+    "pipeline = Pipeline(stages=[tok, stopwordrm])\n",
+    "# Fit the pipeline \n",
+    "apple_tokenized = pipeline.fit(apple).transform(apple)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Lemmatization of the text\n",
+    "import nltk\n",
+    "from nltk.stem import WordNetLemmatizer \n",
+    "# Instantiate lemmatizer object\n",
+    "lemmatizer = WordNetLemmatizer()\n",
+    "# Create lemmatizer python function\n",
+    "def lemma(in_vec):\n",
+    "    out_vec = []\n",
+    "    for t in in_vec:\n",
+    "        t_stem = lemmatizer.lemmatize(t)\n",
+    "        if len(t_stem) > 2:\n",
+    "            out_vec.append(t_stem)       \n",
+    "    return out_vec\n",
+    "#define udf of lemmatizer \n",
+    "from pyspark.sql.types import *\n",
+    "lemmatizer_udf = udf(lambda x: lemma(x), ArrayType(StringType()))\n",
+    "# New dataframe containing the lemmatized tokens \n",
+    "#apple\n",
+    "apple_tokenized = (\n",
+    "    apple_tokenized\n",
+    "        .withColumn(\"words_nsw\", lemmatizer_udf(\"words_nsw\"))\n",
+    "        .select(\"words_nsw\",\"published\"))\n",
+    "#google\n",
+    "google_tokenized = (\n",
+    "    google_tokenized\n",
+    "        .withColumn(\"words_nsw\", lemmatizer_udf(\"words_nsw\"))\n",
+    "        .select(\"words_nsw\",\"published\"))\n",
+    "#microsoft\n",
+    "mic_tokenized = (\n",
+    "    mic_tokenized\n",
+    "        .withColumn(\"words_nsw\", lemmatizer_udf(\"words_nsw\"))\n",
+    "        .select(\"words_nsw\",\"published\"))\n",
+    "#facebook\n",
+    "facebook_tokenized = (\n",
+    "    facebook_tokenized\n",
+    "        .withColumn(\"words_nsw\", lemmatizer_udf(\"words_nsw\"))\n",
+    "        .select(\"words_nsw\",\"published\"))\n",
+    "#amazon\n",
+    "amazon_tokenized = (\n",
+    "    amazon_tokenized\n",
+    "        .withColumn(\"words_nsw\", lemmatizer_udf(\"words_nsw\"))\n",
+    "        .select(\"words_nsw\",\"published\"))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Stemming in the text of news\n",
+    "# Import stemmer library\n",
+    "#from nltk.stem.porter import *\n",
+    "\n",
+    "# Instantiate stemmer object\n",
+    "#stemmer = PorterStemmer()\n",
+    "# Create stemmer python function\n",
+    "#def stem(in_vec):\n",
+    "#    out_vec = []\n",
+    "#    for t in in_vec:\n",
+    "#        t_stem = stemmer.stem(t)\n",
+    "#        if len(t_stem) > 2:\n",
+    "#            out_vec.append(t_stem)       \n",
+    "#    return out_vec\n",
+    "\n",
+    "# Create udf Array<String>\n",
+    "#from pyspark.sql.types import *\n",
+    "#stemmer_udf = udf(lambda x: stem(x), ArrayType(StringType()))\n",
+    "\n",
+    "# New dataframe containing the stemmed tokens \n",
+    "#apple\n",
+    "#apple_tokenized = (\n",
+    "#    apple_tokenized\n",
+    "#        .withColumn(\"words_nsw\", stemmer_udf(\"words_nsw\"))\n",
+    "#        .select(\"words_nsw\",\"published\"))\n",
+    "#google\n",
+    "#google_tokenized = (\n",
+    "#    google_tokenized\n",
+    "#        .withColumn(\"words_nsw\", stemmer_udf(\"words_nsw\"))\n",
+    "#        .select(\"words_nsw\",\"published\"))\n",
+    "#microsoft\n",
+    "#mic_tokenized = (\n",
+    "#    mic_tokenized\n",
+    "#        .withColumn(\"words_nsw\", stemmer_udf(\"words_nsw\"))\n",
+    "#        .select(\"words_nsw\",\"published\"))\n",
+    "#facebook\n",
+    "#facebook_tokenized = (\n",
+    "#    facebook_tokenized\n",
+    "#        .withColumn(\"words_nsw\", stemmer_udf(\"words_nsw\"))\n",
+    "#        .select(\"words_nsw\",\"published\"))\n",
+    "#amazon\n",
+    "#amazon_tokenized = (\n",
+    "#    amazon_tokenized\n",
+    "#        .withColumn(\"words_nsw\", stemmer_udf(\"words_nsw\"))\n",
+    "#        .select(\"words_nsw\",\"published\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#add an id to every financial news\n",
+    "from pyspark.sql.functions import monotonically_increasing_id\n",
+    "\n",
+    "#microsoft\n",
+    "mic_tokenized = mic_tokenized.withColumn(\"id\", monotonically_increasing_id())\n",
+    "#facebook\n",
+    "facebook_tokenized = facebook_tokenized.withColumn(\"id\", monotonically_increasing_id())\n",
+    "#google\n",
+    "google_tokenized = google_tokenized.withColumn(\"id\", monotonically_increasing_id())\n",
+    "#amazon\n",
+    "amazon_tokenized = amazon_tokenized.withColumn(\"id\", monotonically_increasing_id())\n",
+    "#apple\n",
+    "apple_tokenized = apple_tokenized.withColumn(\"id\", monotonically_increasing_id())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#creating the sentiment dataframe of matching words\n",
+    "#microsoft\n",
+    "mic_word_sent = mic_tokenized.\\\n",
+    "    select('id','published',fn.explode('words_nsw').alias('Word')).\\\n",
+    "    join(sentiments_df, 'Word')\n",
+    "#facebook\n",
+    "facebook_word_sent = facebook_tokenized.\\\n",
+    "    select('id','published',fn.explode('words_nsw').alias('Word')).\\\n",
+    "    join(sentiments_df, 'Word')\n",
+    "#google\n",
+    "google_word_sent = google_tokenized.\\\n",
+    "    select('id','published',fn.explode('words_nsw').alias('Word')).\\\n",
+    "    join(sentiments_df, 'Word')\n",
+    "#amazon\n",
+    "amazon_word_sent = amazon_tokenized.\\\n",
+    "    select('id','published',fn.explode('words_nsw').alias('Word')).\\\n",
+    "    join(sentiments_df, 'Word')\n",
+    "#apple\n",
+    "apple_word_sent = apple_tokenized.\\\n",
+    "    select('id','published',fn.explode('words_nsw').alias('Word')).\\\n",
+    "    join(sentiments_df, 'Word')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#calculating the average sentiment per document of the news with the matching words\n",
+    "#microsoft\n",
+    "mic_sentiment = mic_word_sent.\\\n",
+    "    groupBy('id').\\\n",
+    "    agg(fn.avg('Score').alias('avg_sentiment'))\n",
+    "#facebook\n",
+    "facebook_sentiment = facebook_word_sent.\\\n",
+    "    groupBy('id').\\\n",
+    "    agg(fn.avg('Score').alias('avg_sentiment'))\n",
+    "#google\n",
+    "google_sentiment = google_word_sent.\\\n",
+    "    groupBy('id').\\\n",
+    "    agg(fn.avg('Score').alias('avg_sentiment'))\n",
+    "#amazon\n",
+    "amazon_sentiment = amazon_word_sent.\\\n",
+    "    groupBy('id').\\\n",
+    "    agg(fn.avg('Score').alias('avg_sentiment'))\n",
+    "#apple\n",
+    "apple_sentiment = apple_word_sent.\\\n",
+    "    groupBy('id').\\\n",
+    "    agg(fn.avg('Score').alias('avg_sentiment'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#labelling the news which do not match with a sentiment score of 0\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "from functools import reduce  \n",
+    "from pyspark.sql import DataFrame\n",
+    "def unionAll(*dfs):\n",
+    "    return reduce(DataFrame.unionAll, dfs)\n",
+    "#microsoft\n",
+    "aa=mic_tokenized.toPandas()\n",
+    "bb=mic_sentiment.toPandas()\n",
+    "mic_notmatching= aa[pd.merge(bb, aa, how='outer').isnull().any(axis=1)]\n",
+    "mic_notmatching=mic_notmatching[['id']]\n",
+    "mic_notmatching['avg_sentiment']=0\n",
+    "mic_notmatching=sqlContext.createDataFrame(mic_notmatching)\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "mic_sentiment=unionAll(mic_sentiment, mic_notmatching)\n",
+    "#facebook\n",
+    "cc=facebook_tokenized.toPandas()\n",
+    "dd=facebook_sentiment.toPandas()\n",
+    "facebook_notmatching= cc[pd.merge(dd, cc, how='outer').isnull().any(axis=1)]\n",
+    "facebook_notmatching=facebook_notmatching[['id']]\n",
+    "facebook_notmatching['avg_sentiment']=0\n",
+    "facebook_notmatching=sqlContext.createDataFrame(facebook_notmatching)\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "facebook_sentiment=unionAll(facebook_sentiment, facebook_notmatching)\n",
+    "\n",
+    "#google\n",
+    "ee=google_tokenized.toPandas()\n",
+    "ff=google_sentiment.toPandas()\n",
+    "google_notmatching= ee[pd.merge(ff, ee, how='outer').isnull().any(axis=1)]\n",
+    "google_notmatching=google_notmatching[['id']]\n",
+    "google_notmatching['avg_sentiment']=0\n",
+    "google_notmatching=sqlContext.createDataFrame(google_notmatching)\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "google_sentiment=unionAll(google_sentiment, google_notmatching)\n",
+    "\n",
+    "#amazon\n",
+    "gg=amazon_tokenized.toPandas()\n",
+    "hh=amazon_sentiment.toPandas()\n",
+    "amazon_notmatching= gg[pd.merge(hh, gg, how='outer').isnull().any(axis=1)]\n",
+    "amazon_notmatching=amazon_notmatching[['id']]\n",
+    "amazon_notmatching['avg_sentiment']=0\n",
+    "amazon_notmatching=sqlContext.createDataFrame(amazon_notmatching)\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "amazon_sentiment=unionAll(amazon_sentiment, amazon_notmatching)\n",
+    "#apple\n",
+    "ii=apple_tokenized.toPandas()\n",
+    "kk=apple_sentiment.toPandas()\n",
+    "apple_notmatching= ii[pd.merge(kk, ii, how='outer').isnull().any(axis=1)]\n",
+    "apple_notmatching=apple_notmatching[['id']]\n",
+    "apple_notmatching['avg_sentiment']=0\n",
+    "apple_notmatching=sqlContext.createDataFrame(apple_notmatching)\n",
+    "#Uniting the not matching data frame with sentiment dataframe\n",
+    "apple_sentiment=unionAll(apple_sentiment, apple_notmatching)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2552\n",
+      "12500\n",
+      "5196\n",
+      "5845\n",
+      "6786\n"
+     ]
+    }
+   ],
+   "source": [
+    "#number of the news per companies\n",
+    "#microsoft\n",
+    "print(mic_sentiment.count())\n",
+    "#facebook\n",
+    "print(facebook_sentiment.count())\n",
+    "#google\n",
+    "print(google_sentiment.count())\n",
+    "#apple\n",
+    "print(apple_sentiment.count())\n",
+    "#amazon\n",
+    "print(amazon_sentiment.count())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#joining the dataframes in order to get the publishing timestamp of the news\n",
+    "#microsoft\n",
+    "mic_final=mic_sentiment.join(mic_tokenized, mic_sentiment.id \n",
+    "                             == mic_tokenized.id).select(mic_sentiment[\"id\"],\n",
+    "                                mic_sentiment[\"avg_sentiment\"],\n",
+    "                                                         mic_tokenized[\"published\"])\n",
+    "#facebook\n",
+    "facebook_final=facebook_sentiment.join(facebook_tokenized, facebook_sentiment.id \n",
+    "                        == facebook_tokenized.id).select(facebook_sentiment[\"id\"],\n",
+    "                            facebook_sentiment[\"avg_sentiment\"],facebook_tokenized[\"published\"])\n",
+    "#google\n",
+    "google_final=google_sentiment.join(google_tokenized, google_sentiment.id\n",
+    "                                   == google_tokenized.id).select(google_sentiment[\"id\"],\n",
+    "                                        google_sentiment[\"avg_sentiment\"],\n",
+    "                                                    google_tokenized[\"published\"])\n",
+    "#amazon\n",
+    "amazon_final=amazon_sentiment.join(amazon_tokenized, amazon_sentiment.id \n",
+    "                                == amazon_tokenized.id).select(amazon_sentiment[\"id\"],\n",
+    "                                        amazon_sentiment[\"avg_sentiment\"],\n",
+    "                                                               amazon_tokenized[\"published\"])\n",
+    "#apple\n",
+    "apple_final=apple_sentiment.join(apple_tokenized, apple_sentiment.id\n",
+    "                                 == apple_tokenized.id).select(apple_sentiment[\"id\"],\n",
+    "                                        apple_sentiment[\"avg_sentiment\"],\n",
+    "                                                apple_tokenized[\"published\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#calculating the average daily sentiment per company \n",
+    "#microsoft\n",
+    "from pyspark.sql import functions as fn\n",
+    "mic_final = mic_final.withColumn(\"date_only\", fn.to_date(fn.col(\"published\")))\n",
+    "microsoft_daily = mic_final.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.avg('avg_sentiment').alias('daily_sentiment'))\n",
+    "\n",
+    "#facebook\n",
+    "facebook_final = facebook_final.withColumn(\"date_only\", fn.to_date(fn.col(\"published\")))\n",
+    "facebook_daily = facebook_final.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.avg('avg_sentiment').alias('daily_sentiment'))\n",
+    "\n",
+    "#google\n",
+    "google_final = google_final.withColumn(\"date_only\", fn.to_date(fn.col(\"published\")))\n",
+    "google_daily = google_final.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.avg('avg_sentiment').alias('daily_sentiment'))\n",
+    "#amazon\n",
+    "amazon_final = amazon_final.withColumn(\"date_only\", fn.to_date(fn.col(\"published\")))\n",
+    "amazon_daily = amazon_final.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.avg('avg_sentiment').alias('daily_sentiment'))\n",
+    "\n",
+    "#apple\n",
+    "apple_final = apple_final.withColumn(\"date_only\", fn.to_date(fn.col(\"published\")))\n",
+    "apple_daily = apple_final.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.avg('avg_sentiment').alias('daily_sentiment'))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Loading Stock Prices\n",
+    "google_stock= pd.read_csv('/Users/emreovey/Desktop/GOOGL_Historical_Data.csv')\n",
+    "google_stock= sqlContext.createDataFrame(google_stock)\n",
+    "facebook_stock= pd.read_csv('/Users/emreovey/Desktop/FB.csv')\n",
+    "facebook_stock= sqlContext.createDataFrame(facebook_stock)\n",
+    "amazon_stock=pd.read_csv('/Users/emreovey/Desktop/AMZN.csv')\n",
+    "amazon_stock=sqlContext.createDataFrame(amazon_stock)\n",
+    "microsoft_stock=pd.read_csv('/Users/emreovey/Desktop/MSFT.csv')\n",
+    "microsoft_stock=sqlContext.createDataFrame(microsoft_stock)\n",
+    "apple_stock=pd.read_csv('/Users/emreovey/Desktop/AAPL.csv')\n",
+    "apple_stock=sqlContext.createDataFrame(apple_stock)\n",
+    "#google_stock.set_index('Date', inplace=True)\n",
+    "#google_stock=google_stock['Close']\n",
+    "#google_stock.show(5)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "#Joining dataframes of stocks and daily sentiments and converting to pd dataframe to eleminate closed days of stock market\n",
+    "#google\n",
+    "google_joined=google_daily.join(google_stock, google_daily.date_only == google_stock.Date).select(google_daily[\"date_only\"],google_daily[\"daily_sentiment\"],google_stock[\"Close\"])\n",
+    "google_joined=google_joined.sort('date_only').toPandas()\n",
+    "google_joined= pd.DataFrame(google_joined)\n",
+    "#amazon\n",
+    "amazon_joined=amazon_daily.join(amazon_stock, amazon_daily.date_only == amazon_stock.Date).select(amazon_daily[\"date_only\"],amazon_daily[\"daily_sentiment\"],amazon_stock[\"Close\"])\n",
+    "amazon_joined=amazon_joined.sort('date_only').toPandas()\n",
+    "amazon_joined= pd.DataFrame(amazon_joined)\n",
+    "#facebook\n",
+    "facebook_joined=facebook_daily.join(facebook_stock, facebook_daily.date_only == facebook_stock.Date).select(facebook_daily[\"date_only\"],facebook_daily[\"daily_sentiment\"],facebook_stock[\"Close\"])\n",
+    "facebook_joined=facebook_joined.sort('date_only').toPandas()\n",
+    "facebook_joined= pd.DataFrame(facebook_joined)\n",
+    "#apple\n",
+    "apple_joined=apple_daily.join(apple_stock, apple_daily.date_only == apple_stock.Date).select(apple_daily[\"date_only\"],apple_daily[\"daily_sentiment\"],apple_stock[\"Close\"])\n",
+    "apple_joined=apple_joined.sort('date_only').toPandas()\n",
+    "apple_joined= pd.DataFrame(apple_joined)\n",
+    "#microsoft\n",
+    "microsoft_joined=microsoft_daily.join(microsoft_stock, microsoft_daily.date_only == microsoft_stock.Date).select(microsoft_daily[\"date_only\"],microsoft_daily[\"daily_sentiment\"],microsoft_stock[\"Close\"])\n",
+    "microsoft_joined=microsoft_joined.sort('date_only').toPandas()\n",
+    "microsoft_joined= pd.DataFrame(microsoft_joined)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(83, 21)"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "#google\n",
+    "#converting data type and setting the date as index\n",
+    "google_joined['date_only'] = pd.to_datetime(google_joined['date_only'])\n",
+    "google_joined = google_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "google_train_set, google_test_set= np.split(google_joined, [int(.80 *len(google_joined))])\n",
+    "len(google_train_set), len(google_test_set)\n",
+    "#amazon\n",
+    "#converting data type and setting the date as index\n",
+    "amazon_joined['date_only'] = pd.to_datetime(amazon_joined['date_only'])\n",
+    "amazon_joined = amazon_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "amazon_train_set, amazon_test_set= np.split(amazon_joined, [int(.80 *len(amazon_joined))])\n",
+    "len(amazon_train_set), len(amazon_test_set)\n",
+    "#facebook\n",
+    "#converting data type and setting the date as index\n",
+    "facebook_joined['date_only'] = pd.to_datetime(facebook_joined['date_only'])\n",
+    "facebook_joined = facebook_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "facebook_train_set, facebook_test_set= np.split(facebook_joined, [int(.80 *len(facebook_joined))])\n",
+    "len(facebook_train_set), len(facebook_test_set)\n",
+    "#apple\n",
+    "#converting data type and setting the date as index\n",
+    "apple_joined['date_only'] = pd.to_datetime(apple_joined['date_only'])\n",
+    "apple_joined = apple_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "apple_train_set, apple_test_set= np.split(apple_joined, [int(.80 *len(apple_joined))])\n",
+    "len(apple_train_set), len(apple_test_set)\n",
+    "#microsoft\n",
+    "#converting data type and setting the date as index\n",
+    "microsoft_joined['date_only'] = pd.to_datetime(microsoft_joined['date_only'])\n",
+    "microsoft_joined = microsoft_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "microsoft_train_set, microsoft_test_set= np.split(microsoft_joined, [int(.80 *len(microsoft_joined))])\n",
+    "len(microsoft_train_set), len(microsoft_test_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#converting the sentiments into 2D numpy array \n",
+    "import numpy as np\n",
+    "#google\n",
+    "a=google_train_set['daily_sentiment'].to_numpy()\n",
+    "google_train_sentiment= np.reshape(a, (-1, 1))\n",
+    "b=google_test_set['daily_sentiment'].to_numpy()\n",
+    "google_test_sentiment= np.reshape(b, (-1, 1))\n",
+    "#converting the sentiments into numpy array amazon\n",
+    "a=amazon_train_set['daily_sentiment'].to_numpy()\n",
+    "amazon_train_sentiment= np.reshape(a, (-1, 1))\n",
+    "b=amazon_test_set['daily_sentiment'].to_numpy()\n",
+    "amazon_test_sentiment= np.reshape(b, (-1, 1))\n",
+    "#converting the sentiments into numpy array apple\n",
+    "a=apple_train_set['daily_sentiment'].to_numpy()\n",
+    "apple_train_sentiment= np.reshape(a, (-1, 1))\n",
+    "b=apple_test_set['daily_sentiment'].to_numpy()\n",
+    "apple_test_sentiment= np.reshape(b, (-1, 1))\n",
+    "#converting the sentiments into numpy array microsoft\n",
+    "a=microsoft_train_set['daily_sentiment'].to_numpy()\n",
+    "microsoft_train_sentiment= np.reshape(a, (-1, 1))\n",
+    "b=microsoft_test_set['daily_sentiment'].to_numpy()\n",
+    "microsoft_test_sentiment= np.reshape(b, (-1, 1))\n",
+    "#converting the sentiments into numpy array facebook\n",
+    "a=facebook_train_set['daily_sentiment'].to_numpy()\n",
+    "facebook_train_sentiment= np.reshape(a, (-1, 1))\n",
+    "b=facebook_test_set['daily_sentiment'].to_numpy()\n",
+    "facebook_test_sentiment= np.reshape(b, (-1, 1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: FutureWarning: Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "  after removing the cwd from sys.path.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=472.096, BIC=481.772, Fit time=0.123 seconds\n",
+      "Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=631.086, BIC=635.924, Fit time=0.021 seconds\n",
+      "Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=470.121, BIC=477.377, Fit time=0.094 seconds\n",
+      "Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=549.246, BIC=556.503, Fit time=0.068 seconds\n",
+      "Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=472.103, BIC=481.779, Fit time=0.130 seconds\n",
+      "Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds\n",
+      "Total fit time: 0.439 seconds\n",
+      "470.12097491898874\n",
+      "13.867510226831687\n",
+      "7.174441508885791\n"
+     ]
+    }
+   ],
+   "source": [
+    "#######Predictive models built for companies ########## 1386 717\n",
+    "#building the arima model for facebook\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(facebook_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1,d=0,\n",
+    "                            max_p=3, max_q=3, stepwise=True,\n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True)\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "model_fit=stepwise_model.fit(apple_train_set['Close'],exogenous=facebook_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_facebook= model_fit.predict(n_periods=21,exogenous=facebook_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(facebook_test_set['Close'],forecast_facebook)))\n",
+    "#mape calculation\n",
+    "#function\n",
+    "def mean_absolute_percentage_error(y_true, y_pred): \n",
+    "    y_true, y_pred = np.array(y_true), np.array(y_pred)\n",
+    "    return np.mean(np.abs((y_true - y_pred) / y_true))*100 \n",
+    "#calculation\n",
+    "print(mean_absolute_percentage_error(facebook_test_set['Close'], forecast_facebook))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "11.629846452493029\n",
+      "5.538132435221818\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 10000, 'gamma': 0.6, 'kernel': 'sigmoid'}"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction \n",
+    "#facebook\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=5)\n",
+    "facebook_model=clf.fit(facebook_train_sentiment,facebook_train_set['Close'])\n",
+    "facebook_results=facebook_model.predict(facebook_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(facebook_test_set['Close'],facebook_results)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(facebook_test_set['Close'], facebook_results))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "10.221733078147139\n",
+      "4.8682630679654695\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': True}"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. facebook\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "facebook_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "facebook_fit=facebook_grid.fit(facebook_train_sentiment,facebook_train_set['Close'])\n",
+    "facebook_predictions = facebook_fit.predict(facebook_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(facebook_test_set['Close'],facebook_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(facebook_test_set['Close'], facebook_predictions))\n",
+    "facebook_grid.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning:\n",
+      "\n",
+      "Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=407.851, BIC=417.527, Fit time=0.160 seconds\n",
+      "Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=536.983, BIC=541.820, Fit time=0.007 seconds\n",
+      "Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=408.276, BIC=415.532, Fit time=0.024 seconds\n",
+      "Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=465.618, BIC=472.875, Fit time=0.034 seconds\n",
+      "Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=409.740, BIC=421.835, Fit time=0.176 seconds\n",
+      "Fit ARIMA: order=(1, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=409.420, BIC=421.514, Fit time=0.148 seconds\n",
+      "Fit ARIMA: order=(2, 0, 2) seasonal_order=(0, 0, 0, 1); AIC=411.323, BIC=425.836, Fit time=0.233 seconds\n",
+      "Total fit time: 0.784 seconds\n",
+      "407.85124862700263\n",
+      "13.550641573310553\n",
+      "6.950786385419275\n"
+     ]
+    }
+   ],
+   "source": [
+    "#building the arima model for apple\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(apple_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1,d=0,\n",
+    "                            max_p=3, max_q=3, stepwise=True,\n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True)\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "model_fit=stepwise_model.fit(apple_train_set['Close'],exogenous=apple_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_apple = model_fit.predict(n_periods=21,exogenous=apple_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(apple_test_set['Close'],forecast_apple)))\n",
+    "#mape calculation\n",
+    "print(mean_absolute_percentage_error(apple_test_set['Close'], forecast_apple))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "13.968379057944086\n",
+      "7.2448766170422605\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 1, 'gamma': 0.6, 'kernel': 'sigmoid'}"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction\n",
+    "#apple\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=10)\n",
+    "apple_model=clf.fit(apple_train_sentiment,apple_train_set['Close'])\n",
+    "apple_results=apple_model.predict(apple_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(apple_test_set['Close'],apple_results)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(apple_test_set['Close'], apple_results))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "13.166696969898913\n",
+      "6.750881768325255\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': False}"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. apple\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "apple_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "apple_fit=apple_grid.fit(apple_train_sentiment,apple_train_set['Close'])\n",
+    "apple_predictions = apple_fit.predict(apple_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(apple_test_set['Close'],apple_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(apple_test_set['Close'], apple_predictions))\n",
+    "apple_grid.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning:\n",
+      "\n",
+      "Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=324.746, BIC=334.373, Fit time=0.054 seconds\n",
+      "Fit ARIMA: order=(0, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=329.804, BIC=334.617, Fit time=0.013 seconds\n",
+      "Fit ARIMA: order=(1, 1, 0) seasonal_order=(0, 0, 0, 1); AIC=326.757, BIC=333.977, Fit time=0.027 seconds\n",
+      "Fit ARIMA: order=(0, 1, 1) seasonal_order=(0, 0, 0, 1); AIC=323.107, BIC=330.327, Fit time=0.032 seconds\n",
+      "Fit ARIMA: order=(0, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.764, BIC=333.391, Fit time=0.055 seconds\n",
+      "Fit ARIMA: order=(1, 1, 2) seasonal_order=(0, 0, 0, 1); AIC=323.349, BIC=335.383, Fit time=0.087 seconds\n",
+      "Total fit time: 0.270 seconds\n",
+      "323.1067726447037\n",
+      "1.523271924376745\n",
+      "1.3823633103242856\n"
+     ]
+    }
+   ],
+   "source": [
+    "#building the arima model for microsoft\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(microsoft_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1,d=1,\n",
+    "                            max_p=3, max_q=3, stepwise=True,\n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True,\n",
+    "                            )\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "model_fit=stepwise_model.fit(microsoft_train_set['Close'],exogenous=microsoft_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_microsoft = model_fit.predict(n_periods=21,exogenous=microsoft_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(microsoft_test_set['Close'],forecast_microsoft)))\n",
+    "#mape calculation\n",
+    "print(mean_absolute_percentage_error(microsoft_test_set['Close'], forecast_microsoft))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4.842719071107618\n",
+      "4.7342050747386555\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 100, 'gamma': 0.9, 'kernel': 'poly'}"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction\n",
+    "#microsoft\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=10)\n",
+    "model=clf.fit(microsoft_train_sentiment,microsoft_train_set['Close'])\n",
+    "results=model.predict(microsoft_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(microsoft_test_set['Close'],results)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(microsoft_test_set['Close'], results))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5.307252598875148\n",
+      "5.234360123226138\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': False}"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. microsoft\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "microsoft_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "microsoft_fit=microsoft_grid.fit(microsoft_train_sentiment,microsoft_train_set['Close'])\n",
+    "microsoft_predictions = microsoft_fit.predict(microsoft_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(microsoft_test_set['Close'],microsoft_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(microsoft_test_set['Close'], microsoft_predictions))\n",
+    "microsoft_grid.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning:\n",
+      "\n",
+      "Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=743.081, BIC=752.756, Fit time=0.103 seconds\n",
+      "Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=891.220, BIC=896.058, Fit time=0.006 seconds\n",
+      "Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=742.158, BIC=749.414, Fit time=0.025 seconds\n",
+      "Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=811.044, BIC=818.300, Fit time=0.044 seconds\n",
+      "Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=743.394, BIC=753.069, Fit time=0.057 seconds\n",
+      "Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds\n",
+      "Total fit time: 0.237 seconds\n",
+      "742.1579574183824\n",
+      "27.708177782619252\n",
+      "2.202944282879424\n"
+     ]
+    }
+   ],
+   "source": [
+    "#building the arima model for google\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(google_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1,d=0,\n",
+    "                            max_p=3, max_q=3, stepwise=True, \n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True)\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "model_fit=stepwise_model.fit(google_train_set['Close'],exogenous=google_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_google = model_fit.predict(n_periods=21,exogenous=google_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(google_test_set['Close'],forecast_google)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(google_test_set['Close'], forecast_google))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "39.448839851098754\n",
+      "2.9721589056401614\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 10000, 'gamma': 0.9, 'kernel': 'sigmoid'}"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction\n",
+    "#google\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=10)\n",
+    "google_model=clf.fit(google_train_sentiment,google_train_set['Close'])\n",
+    "google_results=google_model.predict(google_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(google_test_set['Close'],google_results)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(google_test_set['Close'], google_results))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "35.08799092177397\n",
+      "2.6301745052976293\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': True}"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. google\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "google_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "google_fit=google_grid.fit(google_train_sentiment,google_train_set['Close'])\n",
+    "google_predictions = google_fit.predict(google_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(google_test_set['Close'],google_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(google_test_set['Close'], google_predictions))\n",
+    "google_grid.best_params_\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning:\n",
+      "\n",
+      "Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=794.517, BIC=804.095, Fit time=0.160 seconds\n",
+      "Fit ARIMA: order=(0, 2, 0) seasonal_order=(0, 0, 0, 1); AIC=845.165, BIC=849.954, Fit time=0.008 seconds\n",
+      "Fit ARIMA: order=(1, 2, 0) seasonal_order=(0, 0, 0, 1); AIC=824.643, BIC=831.826, Fit time=0.039 seconds\n",
+      "Fit ARIMA: order=(0, 2, 1) seasonal_order=(0, 0, 0, 1); AIC=792.571, BIC=799.754, Fit time=0.084 seconds\n",
+      "Fit ARIMA: order=(0, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=794.513, BIC=804.091, Fit time=0.136 seconds\n",
+      "Fit ARIMA: order=(1, 2, 2) seasonal_order=(0, 0, 0, 1); AIC=796.432, BIC=808.404, Fit time=0.100 seconds\n",
+      "Total fit time: 0.528 seconds\n",
+      "792.5707019938071\n",
+      "25.65268778942998\n",
+      "1.2037639963296145\n"
+     ]
+    }
+   ],
+   "source": [
+    "#building the arima model for amazon\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(amazon_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1, d=2,\n",
+    "                            max_p=3, max_q=3, stepwise=True,\n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True)\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "amazon_model_fit=stepwise_model.fit(amazon_train_set['Close'],exogenous=amazon_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_amazon = amazon_model_fit.predict(n_periods=21,exogenous=amazon_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(amazon_test_set['Close'],forecast_amazon)))\n",
+    "#mape calculation\n",
+    "print(mean_absolute_percentage_error(amazon_test_set['Close'], forecast_amazon))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "143.20403118280603\n",
+      "8.875307465453808\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 1000, 'gamma': 0.6, 'kernel': 'rbf'}"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction\n",
+    "#amazon\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=10)\n",
+    "amazon_model=clf.fit(amazon_train_sentiment,amazon_train_set['Close'])\n",
+    "amazon_results=amazon_model.predict(amazon_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(amazon_test_set['Close'],amazon_results)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(amazon_test_set['Close'], amazon_results))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "159.48762354764992\n",
+      "9.916866652361591\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': True}"
+      ]
+     },
+     "execution_count": 44,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. amazon\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "amazon_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "amazon_fit=amazon_grid.fit(amazon_train_sentiment,amazon_train_set['Close'])\n",
+    "amazon_predictions = amazon_fit.predict(amazon_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(amazon_test_set['Close'],amazon_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(amazon_test_set['Close'], amazon_predictions))\n",
+    "amazon_grid.best_params_\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Loading S&P 500 index\n",
+    "sp500= pd.read_csv('/Users/emreovey/Desktop/SP500.csv')\n",
+    "sp500= sqlContext.createDataFrame(sp500)\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from functools import reduce  \n",
+    "from pyspark.sql import DataFrame\n",
+    "#Uniting the daily sentiment of FAMGA in one dataframe\n",
+    "def unionAll(*dfs):\n",
+    "    return reduce(DataFrame.unionAll, dfs)\n",
+    "combined=unionAll(microsoft_daily, facebook_daily, google_daily, amazon_daily, apple_daily)\n",
+    "#Aggregation of Famga's sentiment per day by taking the average\n",
+    "combined_grouped=combined.\\\n",
+    "    groupBy('date_only').\\\n",
+    "    agg(fn.sum('daily_sentiment').alias('daily_sentiment'))\n",
+    "#Eleminate closed days of stock market\n",
+    "combined_joined=combined_grouped.join(sp500, \n",
+    "                                      combined_grouped.date_only == sp500.Date).select(combined_grouped[\"date_only\"],\n",
+    "                                                                    combined_grouped[\"daily_sentiment\"],\n",
+    "                                                                                sp500[\"Close\"])\n",
+    "combined_joined=combined_joined.sort('date_only').toPandas()\n",
+    "combined_joined= pd.DataFrame(combined_joined)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(83, 21)"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#S&P 500 Index\n",
+    "#converting data type of date and setting it as index\n",
+    "combined_joined['date_only'] = pd.to_datetime(combined_joined['date_only'])\n",
+    "combined_joined = combined_joined.set_index('date_only')\n",
+    "\n",
+    "#dividing the data set into train and test\n",
+    "combined_train_set, combined_test_set= np.split(combined_joined, [int(.80 *len(combined_joined))])\n",
+    "len(combined_train_set), len(combined_test_set)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#s&p 500 combined\n",
+    "#converting data type of sentiments to 2D arrays\n",
+    "x=combined_train_set['daily_sentiment'].to_numpy()\n",
+    "combined_train_sentiment= np.reshape(x, (-1, 1))\n",
+    "#dividing the data set into train and test\n",
+    "y=combined_test_set['daily_sentiment'].to_numpy()\n",
+    "combined_test_sentiment= np.reshape(y, (-1, 1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning:\n",
+      "\n",
+      "Method .as_matrix will be removed in a future version. Use .values instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fit ARIMA: order=(1, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=816.063, BIC=825.738, Fit time=0.184 seconds\n",
+      "Fit ARIMA: order=(0, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=943.684, BIC=948.522, Fit time=0.009 seconds\n",
+      "Fit ARIMA: order=(1, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=814.157, BIC=821.414, Fit time=0.059 seconds\n",
+      "Fit ARIMA: order=(0, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=857.200, BIC=864.457, Fit time=0.042 seconds\n",
+      "Fit ARIMA: order=(2, 0, 0) seasonal_order=(0, 0, 0, 1); AIC=816.076, BIC=825.751, Fit time=0.051 seconds\n",
+      "Fit ARIMA: order=(2, 0, 1) seasonal_order=(0, 0, 0, 1); AIC=nan, BIC=nan, Fit time=nan seconds\n",
+      "Total fit time: 0.349 seconds\n",
+      "814.1571906097759\n",
+      "28.636052620056496\n",
+      "0.8043029626614193\n"
+     ]
+    }
+   ],
+   "source": [
+    "#building the arima model for S&P 500 Index\n",
+    "from pmdarima.arima import auto_arima\n",
+    "stepwise_model = auto_arima(combined_train_set['Close'].as_matrix(), \n",
+    "                            start_p=1, start_q=1,d=0,\n",
+    "                            max_p=3, max_q=3,stepwise=True, \n",
+    "                            trace=True,error_action='ignore',suppress_warnings=True)\n",
+    "print(stepwise_model.aic())\n",
+    "#training the model\n",
+    "model_fit=stepwise_model.fit(combined_train_set['Close'],exogenous=combined_train_sentiment)\n",
+    "#making predictions\n",
+    "forecast_sp500 = model_fit.predict(n_periods=21,exogenous=combined_test_sentiment)\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(combined_test_set['Close'],forecast_sp500)))\n",
+    "#mape calculation\n",
+    "print(mean_absolute_percentage_error(combined_test_set['Close'], forecast_sp500))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "46.230381754940275\n",
+      "1.286871262799315\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'copy_X': True, 'fit_intercept': True, 'normalize': True}"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Predicting with Linear Reg. S&P 500 Index\n",
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "parameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\n",
+    "combined_grid = GridSearchCV(model,parameters, cv=10)\n",
+    "combined_fit=combined_grid.fit(combined_train_sentiment,combined_train_set['Close'])\n",
+    "sp500_predictions = combined_fit.predict(combined_test_sentiment)\n",
+    "\n",
+    "from sklearn import metrics\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(combined_test_set['Close'],sp500_predictions)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(combined_test_set['Close'], sp500_predictions))\n",
+    "combined_grid.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "45.17709692665504\n",
+      "1.5751108223155823\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:\n",
+      "\n",
+      "The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'C': 100, 'gamma': 0.6, 'kernel': 'sigmoid'}"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#SVR Prediction S&P 500 Index\n",
+    "#S&P 500 Index\n",
+    "from sklearn.svm import SVR\n",
+    "import cufflinks as cf\n",
+    "from sklearn.model_selection import GridSearchCV\n",
+    "parameters = [{'kernel': ['linear', 'poly', 'rbf', 'sigmoid'], 'gamma': [1e-4, 1e-3, 0.01, 0.1, 0.2, 0.5, 0.6, 0.9],\n",
+    "               'C': [1, 10, 100, 1000, 10000]}]\n",
+    "svr = SVR()\n",
+    "clf = GridSearchCV(svr, parameters,cv=10)\n",
+    "model=clf.fit(combined_train_sentiment,combined_train_set['Close'])\n",
+    "results_sp500=model.predict(combined_test_sentiment)\n",
+    "#calculating accuracy measures\n",
+    "#results of rmse\n",
+    "print(np.sqrt(metrics.mean_squared_error(combined_test_set['Close'],results_sp500)))\n",
+    "#mape\n",
+    "print(mean_absolute_percentage_error(combined_test_set['Close'], results_sp500))\n",
+    "clf.best_params_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/336.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##S&P 500 Arima prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_sp500 ,index = combined_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([combined_joined['Close'],predictions],axis=1).iplot(title='Predicted S&P 500 Index using ARIMA vs Actual S&P 500 Index')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/338.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 53,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##S&P 500 SVR prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(results_sp500 ,index = combined_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([combined_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/340.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##S&P 500 LR prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(sp500_predictions ,index = combined_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([combined_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/342.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 55,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Facebook ARIMA prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_facebook ,index = facebook_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([facebook_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/344.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 56,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Apple ARIMA prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_apple ,index = apple_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([apple_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/346.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 57,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Microsoft ARIMA prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_microsoft ,index = microsoft_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([microsoft_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/348.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 58,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Google ARIMA prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_google ,index = google_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([google_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/350.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Amazon ARIMA prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(forecast_amazon ,index = amazon_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([amazon_joined['Close'],predictions],axis=1).iplot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/352.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations\n",
+    "##Amazon LR prediction\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    " \n",
+    "predictions = pd.DataFrame(amazon_predictions ,index = amazon_test_set.index,columns=['Prediction'])\n",
+    "pd.concat([amazon_joined['Close'],predictions],axis=1).iplot(title='Predicted results of the stock price of Apple Inc. using LR vs actual stock price')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/354.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 61,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations of daily sentiment scores\n",
+    "##Facebook\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    "pd.concat([facebook_joined['daily_sentiment']],axis=1).iplot(title='Daily Sentiment Scores Calculated for Facebook Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/356.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Histogram of the Sentiment Scores of Facebook Inc\n",
+    "facebook_joined['daily_sentiment'].iplot(\n",
+    "    kind='hist',\n",
+    "    bins=50,\n",
+    "    xTitle='polarity',\n",
+    "    linecolor='black',\n",
+    "    yTitle='count',\n",
+    "    title='Sentiment Polarity Distribution for Facebook Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/358.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations of daily sentiment scores\n",
+    "##Apple\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    "pd.concat([apple_joined['daily_sentiment']],axis=1).iplot(title='Daily Sentiment Scores Calculated for Apple Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/360.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Histogram of the Sentiment Scores of Apple Inc\n",
+    "apple_joined['daily_sentiment'].iplot(\n",
+    "    kind='hist',\n",
+    "    bins=50,\n",
+    "    xTitle='polarity',\n",
+    "    linecolor='black',\n",
+    "    yTitle='count',\n",
+    "    title='Sentiment Polarity Distribution for Apple Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/362.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations of daily sentiment scores\n",
+    "##Google\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    "pd.concat([google_joined['daily_sentiment']],axis=1).iplot(title='Daily Sentiment Scores Calculated for Google Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/364.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Histogram of the Sentiment Scores of Google\n",
+    "google_joined['daily_sentiment'].iplot(\n",
+    "    kind='hist',\n",
+    "    bins=50,\n",
+    "    xTitle='polarity',\n",
+    "    linecolor='black',\n",
+    "    yTitle='count',\n",
+    "    title='Sentiment Polarity Distribution for Google Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/366.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#visualizations of daily sentiment scores\n",
+    "##Amazon\n",
+    "import plotly \n",
+    "plotly.tools.set_credentials_file(username='emreovey', api_key='VDKOQlPYg9AsEeFZsNSX')\n",
+    "import plotly.plotly as ply\n",
+    "import cufflinks as cf\n",
+    "pd.concat([amazon_joined['daily_sentiment']],axis=1).iplot(title='Daily Sentiment Scores Calculated for Amazon.com Inc.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.7/site-packages/IPython/core/display.py:689: UserWarning:\n",
+      "\n",
+      "Consider using IPython.display.IFrame instead\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~emreovey/368.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<chart_studio.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Histogram of the Sentiment Scores of Amazon.com Inc.\n",
+    "amazon_joined['daily_sentiment'].iplot(\n",
+    "    kind='hist',\n",
+    "    bins=50,\n",
+    "    xTitle='polarity',\n",
+    "    linecolor='black',\n",
+    "    yTitle='count',\n",
+    "    title='Sentiment Polarity Distribution for Amazon.com Inc.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
